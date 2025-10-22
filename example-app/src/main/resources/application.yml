@@ -1,0 +1,56 @@
+## Sample SSH configuration demonstrating password authentication
+## This example defines two hosts, 'staging' and 'production'. Update hostnames and credentials as needed.
+## For local testing with Testcontainers or a local container, see README in the example-app module.
+#ssh:
+#  defaults:
+#    port: 22
+#    retry:
+#      enabled: true
+#      max-attempts: 3
+#      delay: 200ms
+#    pool:
+#      enabled: true
+#      max-total: 8
+#      max-idle: 8
+#      min-idle: 0
+#      max-wait: 30s
+#    timeouts:
+#      connect: 5s
+#      authentication: 10s
+#      session: 10m
+#      read: 30s
+#  hosts:
+#    master:
+#      host: 192.168.101.146
+#      username: tinkers
+#      authentication:
+#        type: password
+#        password: tinkers
+#      timeouts:
+#        connect: 3s
+#      known-hosts:
+#        mode: off
+#    test:
+#      host: 192.168.101.112
+#      username: 25756
+#      authentication:
+#        type: password
+#        password: tinkers
+#      timeouts:
+#        connect: 3s
+#      known-hosts:
+#        mode: off
+#  observability:
+#    enabled: true
+#
+#
+## Example app runner configuration
+#example:
+#  # Set to true to execute a demo command and file transfer on startup
+#  run-on-startup: false
+#  # If multiple ssh.hosts are configured, specify which alias to use
+#  host: staging
+#  # Command to execute via SSH on startup when run-on-startup=true
+#  command: "echo Hello from SSH via example-app"
+#  # Path (relative to remote home or absolute) to upload a demo file to
+#  remotePath: example-app.txt

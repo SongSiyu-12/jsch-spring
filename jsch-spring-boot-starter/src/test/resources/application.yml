@@ -1,0 +1,40 @@
+ssh:
+  defaults:
+    port: 22
+    username: defaultuser
+    authentication:
+      type: public_key
+      private-key-path: classpath:keys/id_rsa
+      passphrase: topsecret
+    known-hosts:
+      mode: accept_new
+      path: ~/.ssh/known_hosts
+    retry:
+      enabled: true
+      max-attempts: 5
+      delay: 250ms
+    pool:
+      enabled: true
+      max-total: 10
+      max-idle: 5
+      min-idle: 1
+      max-wait: 2s
+    timeouts:
+      connect: 2s
+      authentication: 8s
+      session: 20m
+      read: 25s
+  hosts:
+    primary:
+      host: example.com
+      username: alice
+      authentication:
+        type: password
+        password: s3cr3t
+      timeouts:
+        connect: 2s
+    backup:
+      host: 192.168.1.42
+      port: 2222
+      known-hosts:
+        mode: strict

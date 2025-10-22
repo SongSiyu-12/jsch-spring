@@ -1,0 +1,32 @@
+# Maven
+/target/
+**/target/
+.mvn/timing.properties
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# IntelliJ
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# VS Code
+.vscode/
+
+# Logs
+logs/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build
+*.class
+
+# Other
+*~
