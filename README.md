@@ -69,11 +69,23 @@ ssh_file/
 
 ```xml
 
+<repositories>
+    <repository>
+        <id>mvn-repo</id>
+        <url>https://raw.githubusercontent.com/SongSiyu-12/mvn-repo/master/</url>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+        </snapshots>
+    </repository>
+</repositories>
+<dependencies>
 <dependency>
-    <groupId>com.example</groupId>
+    <groupId>com.yu</groupId>
     <artifactId>jsch-spring-boot-starter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 </dependency>
+</dependencies>
 ```
 
 ### 3. 配置连接
